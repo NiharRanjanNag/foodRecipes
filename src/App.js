@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+ import React from 'react'
+ import { Routes,Route, BrowserRouter } from 'react-router-dom'
+import Nave from './components/Nave'
+import Favorites from '../src/pages/favorites'
+import Home from '../src/pages/home';
+import Details from '../src/pages/details';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+ const App = () => {
+   return (
+    <>  
+      <BrowserRouter> 
+      <Nave />
+         <Routes>
+           <Route path='/' element={<Home />} />
+           <Route path='/favorites' element={< Favorites />} />
+           <Route path='recipe-item/:id' element={<Details />} />
+         </Routes>
+         </BrowserRouter>
+    </>
+   )
+ }
+ 
+ export default App
